@@ -4,7 +4,8 @@ import Content from "./content/content";
 import Header from "./header/header";
 
 import styles from "./information.module.scss";
-const Information = () => {
+
+const Information: React.FC = () => {
   return (
     <div className={`${styles[`information`]}`}>
       <div className={`${styles[`information__container`]}`}>

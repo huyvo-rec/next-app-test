@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Component } from "react";
+import { Component, useEffect } from "react";
 
 import Sound from "../../../../assets/images/sound.png";
 import Switch from "../../../../assets/images/switch.png";
@@ -12,9 +12,11 @@ interface Props {
   form?: IFormItem;
 }
 
-const Card = (props: Props) => {
-  const form = useAppSelector((state) => state.auth);
-  console.log(form);
+const Card: React.FC<Props> = ({ form }) => {
+  const form1 = useAppSelector((state) => state.auth);
+  useEffect(() => {}, [form1]);
+
+  console.log(form1);
   // const { form } = props;
   return (
     <div className={`${styles[`card`]}`}>
@@ -29,7 +31,7 @@ const Card = (props: Props) => {
         </div>
 
         <div className={`${styles[`card__info-numberID`]}`}>
-          {/* {(form?.numberID as string)?.split("-").map((item: string) => (
+          {/* {(form?.numberID )?.split("-").map((item: string) => (
             <span>{item}</span>
           ))} */}
         </div>
@@ -40,8 +42,8 @@ const Card = (props: Props) => {
             src={Switch}
             alt=""
           ></Image>
-          {/* <div className={`${styles[`auth__name`]}`}>{form.fullname}</div> */}
-          {/* <div className={`${styles[`auth__date`]}`}>{form.expiryDate}</div> */}
+          <div className={`${styles[`auth__name`]}`}>{form1.fullname}</div>
+          <div className={`${styles[`auth__date`]}`}>{form1.expiryDate}</div>
         </div>
       </div>
 

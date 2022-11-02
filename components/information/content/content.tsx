@@ -10,7 +10,7 @@ interface Props {
   form?: IFormItem;
 }
 
-const Content = (props: Props) => {
+const Content: React.FC = (props: Props) => {
   const { form } = props;
 
   return (

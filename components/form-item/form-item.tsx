@@ -11,7 +11,7 @@ interface Props {
   handleInputNumber: (value: 0 | null) => void;
 }
 
-const FormItem = (props: Props) => {
+const FormItem: React.FC<Props> = (props) => {
   const { form, handleInputChange, handleInputNumber } = props;
 
   return (

@@ -2,21 +2,19 @@ import axios from "axios";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IFormItem } from "../contants/IFormItem";
 
-export const postUserInfor = createAsyncThunk(
+export const doPostUserInfor = createAsyncThunk(
   "user/postUserInfor",
-  async (form) => {
-    const response = await axios
-      .post("http://localhost:5000/v1/auth", {
+  async (form: IFormItem) => {
+    try {
+      const response = await axios.post("/api/auth", {
         form,
-      })
-      .then(function (res: any) {
-        console.log(res);
-      })
-      .catch(function (error: any) {
-        console.log(error);
       });
-
-    return response;
+      if (response) {
+        return response.data.form;
+      }
+    } catch (error: any) {
+      console.log(error);
+    }
   }
 );
 
@@ -34,10 +32,10 @@ const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [postUserInfor.pending.type]: (state) => {
+    [doPostUserInfor.pending.type]: (state) => {
       state.loading = true;
     },
-    [postUserInfor.fulfilled.type]: (
+    [doPostUserInfor.fulfilled.type]: (
       state,
       { payload }: PayloadAction<IFormItem>
     ) => {
@@ -50,7 +48,7 @@ const authSlice = createSlice({
         state.numberID = { ...payload }.numberID;
       }
     },
-    [postUserInfor.rejected.type]: (state) => {
+    [doPostUserInfor.rejected.type]: (state) => {
       state.loading = false;
     },
   },

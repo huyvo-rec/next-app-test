@@ -2,7 +2,6 @@ import React, { Component, useState } from "react";
 import { useRouter } from "next/router";
 import { Button, Form, Input, InputNumber } from "antd";
 import Image from "next/image";
-import postUserInfor from "../../redux/authSlice";
 
 import { IFormItem } from "../../contants/IFormItem";
 
@@ -10,10 +9,12 @@ import FormItem from "../form-item/form-item";
 import Fb from "../../assets/images/icons8-facebook-48.png";
 
 import styles from "./auth.module.scss";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useAppDispatch } from "../../redux/store";
+import { doPostUserInfor } from "../../redux/authSlice";
+import middlewareAuth from "../../pages/api/auth";
 
-const Auth = () => {
+const Auth: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const router = useRouter();
@@ -50,8 +51,9 @@ const Auth = () => {
   };
 
   const onFinish = () => {
-    dispatch(postUserInfor(form));
-    router.push("/information");
+    dispatch(doPostUserInfor(form));
+
+    // router.push("/information");
   };
   return (
     <div className={`${styles[`auth`]}`}>
