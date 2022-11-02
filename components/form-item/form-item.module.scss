@@ -1,0 +1,94 @@
+@import "../../styles/variables.scss";
+
+.input {
+  margin-top: 100px;
+  display: grid;
+  gap: 25px;
+
+  &__item {
+    height: 40px;
+    width: 100%;
+    position: relative;
+    [class*="ant-input-affix-wrapper ant-input-password"] {
+      display: inline-flex;
+      width: 100%;
+      span {
+        position: absolute;
+        right: 5px;
+        top: 7px;
+      }
+    }
+    [class*="ant-input-affix-wrapper-focused ant-input-password"] {
+      display: inline-flex;
+      width: 100%;
+      span {
+        position: absolute;
+        right: 5px;
+        top: 7px;
+      }
+    }
+
+    input {
+      height: 40px;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 17px;
+      border-radius: 10px;
+      padding: 0 20px;
+      border: 2px solid silver;
+      box-sizing: border-box;
+      &::placeholder {
+        // color: transparent;
+      }
+      &:focus,
+      &:valid {
+        border: 2px solid $pink-color;
+        &::placeholder {
+          color: #a9a9a9;
+        }
+        ~ {
+          label {
+            transform: translate(-10px, -20px);
+            font-size: 15px;
+            background-color: white;
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+
+    label {
+      position: absolute;
+      bottom: 11px;
+      left: 20px;
+      color: grey;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+  }
+  [class*="ant-picker-dropdown"] {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #000000d9;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum";
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: 1050;
+  }
+  [class*="ant-picker-panel-container"] {
+    overflow: hidden;
+    vertical-align: top;
+    background: red;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014,
+      0 9px 28px 8px #0000000d;
+    transition: margin 0.3s;
+  }
+}

@@ -1,0 +1,24 @@
+.brands {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--silver-color);
+  /* height: 100px; */
+  justify-content: center;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  /* border-right: 1px solid var(--red--color); */
+  &__item {
+    padding: 30px 100px;
+
+    display: flex;
+    column-gap: 50px;
+    flex-wrap: wrap;
+    img.filter-gray {
+      filter: invert(40%) sepia(43%) saturate(0%) hue-rotate(267deg)
+        brightness(101%) contrast(101%);
+      width: 120px;
+      text-align: start;
+    }
+  }
+}

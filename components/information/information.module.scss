@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+.font-mulish {
+  font-family: "Mulish", sans-serif;
+}
+
+.information {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.information__container {
+  border-radius: 25px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 0px 5px 1px $gray-light-color;
+  display: flex;
+  flex-direction: column;
+}
